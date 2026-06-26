@@ -5,4 +5,6 @@ await seed();
 await db.end();
 console.log("🌱 Database seeded.");
 
-async function seed() {}
+async function seed() {
+    
+}
