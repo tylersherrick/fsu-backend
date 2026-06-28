@@ -7,9 +7,9 @@ export async function createDepartment(id, name, description, banner_image_url, 
     RETURNING *;
   `;
     const {
-        rows: [department],
+        rows: [departments],
     } = await db.query(sql, [id, name, description, banner_image_url, contact_info]);
-    return department;
+    return departments;
 }
 
 export async function getDepartments() {
@@ -17,7 +17,7 @@ export async function getDepartments() {
     SELECT * FROM departments;
   `;
   const { 
-        rows: departments, 
+        rows: [departments], 
     } = await db.query(sql);
   return departments;
 }
@@ -27,9 +27,9 @@ export async function getDepartmentById(id) {
     SELECT * FROM departments WHERE id = $1;
   `;
   const { 
-    rows: [department], 
+    rows: [departments], 
 } = await db.query(sql, [id]);
-  return department;
+  return departments;
 }
 
 export async function updateDepartment(id, name, description, banner_image_url, contact_info) {
@@ -40,7 +40,7 @@ export async function updateDepartment(id, name, description, banner_image_url, 
     RETURNING *;
   `;
   const {  
-    rows: [department],
+    rows: [departments],
 } = await db.query(sql, [id, name, description, banner_image_url, contact_info]);
-  return department;
+  return departments;
 }
