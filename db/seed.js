@@ -1,5 +1,7 @@
 import db from "#db/client";
-import { createDepartment } from "./queries/departments";
+import { createDepartment } from "#db/queries/departments";
+import { createFaculty } from "#db/queries/faculties";
+import { createUser } from "#db/queries/users";
 
 await db.connect();
 await seed();
