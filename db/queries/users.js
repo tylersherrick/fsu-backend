@@ -13,6 +13,17 @@ export async function createUser(username, password) {
   return user;
 }
 
+// GET user by ID
+export async function getUserById(id) {
+  const sql = `
+    SELECT * FROM users WHERE id = $1;
+  `;
+  const {
+    rows: [user],
+  } = await db.query(sql, [id]);
+  return user;
+}
+
 // GET user by username + password (login)
 export async function getUserByUsernameAndPassword(username, password) {
   const sql = `
