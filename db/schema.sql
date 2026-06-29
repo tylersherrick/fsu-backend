@@ -1,6 +1,6 @@
-DROP TABLE IF EXISTS departments;
-DROP TABLE IF EXISTS faculties;
-DROP TABLE IF EXISTS users;
+DROP TABLE IF EXISTS faculty CASCADE;
+DROP TABLE IF EXISTS departments CASCADE;
+DROP TABLE IF EXISTS users CASCADE;
 
 CREATE TABLE users (
     id serial PRIMARY KEY,
@@ -23,4 +23,4 @@ CREATE TABLE faculty (
     profile_image_url text NOT NULL,
     contact_info text NOT NULL,
     department_id integer REFERENCES departments(id) ON DELETE CASCADE
-)
+);
